@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Menu</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+        .sidebar {
+            width: 200px;
+            background-color: #333;
+            color: white;
+            height: 100vh;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+        .content {
+            flex-grow: 1;
+            padding: 20px;
+        }
+        .table-container {
+            display: none;
+        }
+        .table-container.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="#" onclick="showTable('users')">Users</a>
+        <a href="#" onclick="showTable('products')">Products</a>
+    </div>
+    <div class="content">
+        <div id="users" class="table-container">
+            <h2>Users Table</h2>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Rol</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>John Doe</td>
+                        <td>john@example.com</td>
+                        <td>Admin</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="products" class="table-container">
+            <h2>Products Table</h2>
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Descripcion</th>
+                        <th>Precio</th>
+                        <th>Stock</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Product A</td>
+                        <td>Description A</td>
+                        <td>$10</td>
+                        <td>100</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function showTable(tableId) {
+            document.querySelectorAll('.table-container').forEach(function(container) {
+                container.classList.remove('active');
+            });
+            document.getElementById(tableId).classList.add('active');
+        }
+    </script>
+</body>
+</html>
