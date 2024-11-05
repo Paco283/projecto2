@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sidebar Menu</title>
+    <title>Menu</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -42,12 +42,16 @@
 </head>
 <body>
     <div class="sidebar">
-        <a href="#" onclick="showTable('users')">Users</a>
-        <a href="#" onclick="showTable('products')">Products</a>
+        <a href="#" onclick="showTable('users')">Usuarios</a>
+        <a href="#" onclick="showTable('products')">Productos</a>
+        <a href="#" onclick="window.location.href='../ventas'; return false;">Vender</a>
+        <a href="#" onclick="window.location.href='../admin'; return false;">Administrar</a>
+        <a href="#" onclick="window.location.href='../'; return false;">Cerrar Sesión</a>
     </div>
     <div class="content">
+        <!-- Tabla de Usuarios -->
         <div id="users" class="table-container">
-            <h2>Users Table</h2>
+            <h2>Usuarios</h2>
             <table class="table table-bordered">
                 <thead class="thead-dark">
                     <tr>
@@ -58,17 +62,25 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for user in users %}
                     <tr>
-                        <td>1</td>
-                        <td>John Doe</td>
-                        <td>john@example.com</td>
-                        <td>Admin</td>
+                        <td>{{ user.id }}</td>
+                        <td>{{ user.username }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.role }}</td>
                     </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4">No hay usuarios disponibles.</td>
+                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
+
+        <!-- Tabla de Productos -->
         <div id="products" class="table-container">
-            <h2>Products Table</h2>
+            <h2>Productos</h2>
             <table class="table table-bordered">
                 <thead class="thead-dark">
                     <tr>
@@ -80,13 +92,19 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for product in products %}
                     <tr>
-                        <td>1</td>
-                        <td>Product A</td>
-                        <td>Description A</td>
-                        <td>$10</td>
-                        <td>100</td>
+                        <td>{{ product.id }}</td>
+                        <td>{{ product.nombre }}</td>
+                        <td>{{ product.descripcion }}</td>
+                        <td>{{ product.precio }}</td>
+                        <td>{{ product.stock }}</td>
                     </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="5">No hay productos disponibles.</td>
+                    </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
