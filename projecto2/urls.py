@@ -21,5 +21,7 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home, name='home'),
-    path('main/', views.main, name='main'),
+    path('main/', views.menu_view, name='main'),
+    path('ventas/', views.ventas_view, name='ventas'),
+    path('process_sale/', views.process_sale, name='process_sale'),  # URL para procesar ventas
 ]
