@@ -38,6 +38,10 @@
         .table-container.active {
             display: block;
         }
+        .low-stock {
+        background-color: #f8d7da; /* Fondo rojo claro */
+        color: #721c24; /* Texto rojo oscuro */
+    }
     </style>
   </head>
   <body>
@@ -60,7 +64,7 @@
                 </thead>
                 <tbody>
                     {% for product in products %}
-                    <tr>
+                    <tr class="{% if product.stock < product.minimun_stock %}low-stock{% endif %}">
                         <td>{{ product.id }}</td>
                         <td>{{ product.nombre }}</td>
                         <td>{{ product.descripcion }}</td>
