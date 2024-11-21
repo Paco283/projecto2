@@ -7,9 +7,7 @@ class User(models.Model):
     username = models.CharField(max_length=50)
     password = models.CharField(max_length=50)
     email = models.EmailField(max_length=50)
-    role = models.CharField(max_length=15)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+    rol = models.CharField(max_length=15)
 
     def __str__(self):
         return self.username

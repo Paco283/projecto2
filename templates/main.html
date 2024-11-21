@@ -42,14 +42,14 @@
 </head>
 <body>
     <div class="sidebar">
-        <a href="#" onclick="showTable('users')">Usuarios</a>
-        <a href="#" onclick="showTable('products')">Productos</a>
+        <a href="#" onclick="window.location.href='../api/users'; return false;">Usuarios</a>
+        <a href="#" onclick="window.location.href='../api/products'; return false;">Productos</a>
         <a href="#" onclick="window.location.href='../ventas'; return false;">Vender</a>
         <a href="#" onclick="window.location.href='../admin'; return false;">Administrar</a>
         <a href="#" onclick="window.location.href='../'; return false;">Cerrar Sesión</a>
     </div>
-    <div class="content">
-        <!-- Tabla de Usuarios -->
+    <!-- <div class="content">
+
         <div id="users" class="table-container">
             <h2>Usuarios</h2>
             <table class="table table-bordered">
@@ -67,7 +67,7 @@
                         <td>{{ user.id }}</td>
                         <td>{{ user.username }}</td>
                         <td>{{ user.email }}</td>
-                        <td>{{ user.role }}</td>
+                        <td>{{ user.rol }}</td>
                     </tr>
                     {% empty %}
                     <tr>
@@ -78,7 +78,7 @@
             </table>
         </div>
 
-        <!-- Tabla de Productos -->
+
         <div id="products" class="table-container">
             <h2>Productos</h2>
             <table class="table table-bordered">
@@ -108,7 +108,7 @@
                 </tbody>
             </table>
         </div>
-    </div>
+    </div> -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
